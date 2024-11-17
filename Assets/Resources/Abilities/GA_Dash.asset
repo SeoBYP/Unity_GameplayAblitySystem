@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc81d24fd714aa6b11e1714146f879b, type: 3}
+  m_Name: GA_Dash
+  m_EditorClassIdentifier: 
+  ga:
+    rid: 1073729571211182127
+  references:
+    version: 2
+    RefIds:
+    - rid: 1073729571211182127
+      type: {class: InstantAbility, ns: GameplayAbilitySystem.GameplayAbilities, asm: Assembly-CSharp}
+      data:
+        name: Dash
+        cooldown:
+          name: 
+          description: 
+          durationType: 0
+          durationValue: 0
+          period: 0
+          periodicExpired: 0
+          modifiers: []
+          source: {fileID: 0}
+          target: {fileID: 0}
+          gameplayEffectTags:
+            GrantedTags: []
+            DescriptionTags: []
+            OngoingTagRequirementsRequired: []
+            OngoingTagRequirementsForbidden: []
+            ApplicationTagRequirementsRequired: []
+            ApplicationTagRequirementsForbidden: []
+            RemoveGameplayEffectsWithTag: []
+            initialized: 0
+            string_GrantedTags: []
+            string_DescriptionTags: []
+            string_OngoingTagRequirementsRequired: []
+            string_OngoingTagRequirementsForbidden: []
+            string_ApplicationTagRequirementsRequired: []
+            string_ApplicationTagRequirementsForbidden: []
+            string_RemovalTagRequirementsRequired: []
+            string_RemovalTagRequirementsForbidden: []
+            string_RemoveGameplayEffectsWithTag: []
+            string_CueTags: []
+          cuesTags: []
+          level: 1
+          chanceToApply: 1
+          guid: 
+          applicationGUID: 
+        cost:
+          name: 
+          description: 
+          durationType: 0
+          durationValue: 0
+          period: 0
+          periodicExpired: 0
+          modifiers: []
+          source: {fileID: 0}
+          target: {fileID: 0}
+          gameplayEffectTags:
+            GrantedTags: []
+            DescriptionTags: []
+            OngoingTagRequirementsRequired: []
+            OngoingTagRequirementsForbidden: []
+            ApplicationTagRequirementsRequired: []
+            ApplicationTagRequirementsForbidden: []
+            RemoveGameplayEffectsWithTag: []
+            initialized: 0
+            string_GrantedTags: []
+            string_DescriptionTags: []
+            string_OngoingTagRequirementsRequired: []
+            string_OngoingTagRequirementsForbidden: []
+            string_ApplicationTagRequirementsRequired: []
+            string_ApplicationTagRequirementsForbidden: []
+            string_RemovalTagRequirementsRequired: []
+            string_RemovalTagRequirementsForbidden: []
+            string_RemoveGameplayEffectsWithTag: []
+            string_CueTags: []
+          cuesTags: []
+          level: 1
+          chanceToApply: 1
+          guid: 
+          applicationGUID: 
+        effects: []
+        effectsSO:
+        - {fileID: 11400000, guid: cd8614dd0d3286d429d047c6a6840248, type: 2}
+        abiltyTags:
+          rid: 1073729571211182128
+        source: {fileID: 0}
+        target: {fileID: 0}
+        owner: {fileID: 0}
+        cuesTags: []
+        guid: 
+        className: 
+        level: 0
+        isActive: 0
+        activationGUID: 
+    - rid: 1073729571211182128
+      type: {class: AbilityTags, ns: GameplayAbilitySystem.GameplayAbilities, asm: Assembly-CSharp}
+      data:
+        ActivationOwnedTags: []
+        DescriptionTags: []
+        CancelAbilitiesWithTags: []
+        BlockAbilitiesWithTags: []
+        SourceTagsRequired: []
+        SourceTagsForbidden: []
+        TargetTagsRequired: []
+        TargetTagsForbidden: []
+        initialized: 0
+        stringActivationOwnedTags: []
+        stringDescriptionTags: []
+        stringCancelAbilitiesWithTags: []
+        stringBlockAbilitiesWithTags: []
+        stringSourceTagsRequired: []
+        stringSourceTagsForbidden: []
+        stringTargetTagsRequired: []
+        stringTargetTagsForbidden: []
+        string_CueTags: []
