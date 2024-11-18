@@ -42,7 +42,8 @@ MonoBehaviour:
       string_RemovalTagRequirementsForbidden: []
       string_RemoveGameplayEffectsWithTag: []
       string_CueTags: []
-    cuesTags: []
+    cuesTags:
+    - {fileID: 11400000, guid: 7165106a25c44c74bb0ab1f367a0f92a, type: 2}
     level: 1
     chanceToApply: 1
     guid: 

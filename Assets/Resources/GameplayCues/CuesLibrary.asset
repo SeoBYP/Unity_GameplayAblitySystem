@@ -34,3 +34,10 @@ MonoBehaviour:
       instance: {fileID: 5000185563825071722, guid: 51e9f3c6a1f9862409284918334cf7fe, type: 3}
       tag: {fileID: 11400000, guid: 79782a13a9e1ccd4c9517ee485009ce0, type: 2}
       offset: {x: 0, y: 0, z: 0}
+  - name: Effect.Damage
+    tag: {fileID: 11400000, guid: 7165106a25c44c74bb0ab1f367a0f92a, type: 2}
+    cue:
+      prefab: {fileID: 585509859303985102, guid: 4a47e56386e4e654a85ddf277fc29e00, type: 3}
+      instance: {fileID: 585509859303985102, guid: 4a47e56386e4e654a85ddf277fc29e00, type: 3}
+      tag: {fileID: 11400000, guid: 7165106a25c44c74bb0ab1f367a0f92a, type: 2}
+      offset: {x: 0, y: 0, z: 0}
