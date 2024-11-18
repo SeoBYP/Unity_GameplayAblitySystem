@@ -97,7 +97,8 @@ MonoBehaviour:
         source: {fileID: 0}
         target: {fileID: 0}
         owner: {fileID: 0}
-        cuesTags: []
+        cuesTags:
+        - {fileID: 11400000, guid: 17ca443378fe84a43aad7fcf7f7d9856, type: 2}
         guid: 
         className: 
         level: 0
@@ -114,7 +115,7 @@ MonoBehaviour:
         SourceTagsForbidden: []
         TargetTagsRequired: []
         TargetTagsForbidden: []
-        initialized: 0
+        initialized: 1
         stringActivationOwnedTags: []
         stringDescriptionTags: []
         stringCancelAbilitiesWithTags: []

@@ -1,4 +1,8 @@
-﻿using Unity.VisualScripting;
+﻿using System;
+using GameplayAbilitySystem;
+using GameplayAbilitySystem.GameplayEffects;
+using GameplayAbilitySystem.SOs;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemy
@@ -7,68 +11,32 @@ namespace Enemy
     {
         private Rigidbody rb;
 
-        [SerializeField] private EnemyWaipoints[] waipoints;
+        private AbilitySystemComponent _abilitySystemComponent;
 
-        [SerializeField] private float normalAcceleration = 1;
-        [SerializeField] private float normalDeceleration = 5;
-        [SerializeField] private float walkSpeed = 5;
+        public AbilitySystemComponent AbilitySystemComponent =>
+            _abilitySystemComponent ??= GetComponent<AbilitySystemComponent>();
 
-        [HideInInspector] public float acceleration;
-        [HideInInspector] public float deceleration;
-
-        [SerializeField] private Transform target;
-        private Vector3 moveDirection = Vector3.zero;
-        private int currentWaipoint = 0;
-        
-        [SerializeField] private bool isStuned = false;
-
-        private void Start()
+        public AttributeName _health;
+        public AttributeName _maxHealth;
+        private void OnHealthChanged(AttributeName attributeName, float oldValue, float newValue, GameplayEffect ge)
         {
-            rb = GetComponent<Rigidbody>();
-            acceleration = normalAcceleration;
-            deceleration = normalDeceleration;
-            if (waipoints.Length > 0)
-                SetDestination(waipoints[currentWaipoint].transform);
-        }
-
-        private void FixedUpdate()
-        {
-            if(target == null) 
-                return;
-            if(isStuned)
-                return;
-            // moveDirection = target.position - transform.position;
-            // moveDirection.y = 0;
-            Vector3 newVelocity = moveDirection * walkSpeed * Time.deltaTime;
-            if (newVelocity.magnitude > 0)
+            if (attributeName == _health)
             {
-                rb.velocity = newVelocity * acceleration;
-            }
-            else
-            {
-                rb.velocity = newVelocity * deceleration;
+                if (newValue <= 0)
+                {
+                    Destroy(gameObject,1);
+                }
             }
         }
         
-        public void SetDestination(Transform destination)
+        private void OnEnable()
         {
-            target = destination;
+            AbilitySystemComponent.OnAttributeChanged += OnHealthChanged;
         }
 
-        public void SetVelocity(Vector3 velocity)
+        private void OnDisable()
         {
-            rb.velocity = velocity;
-        }
-
-        
-        public void SetStun(bool state)
-        {
-            isStuned = state;
-        }
-
-        public void SetPosition(Vector3 position)
-        {
-            transform.position = position;
+            AbilitySystemComponent.OnAttributeChanged -= OnHealthChanged;
         }
     }
 }

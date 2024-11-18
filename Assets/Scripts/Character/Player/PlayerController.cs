@@ -16,7 +16,7 @@ namespace Character
         private Rigidbody rb;
         public bool selfCastIfNoTarget = true;
         public List<AbilitySystemComponent> targets = new List<AbilitySystemComponent>();
-        
+
         [SerializeField] private float moveSpeed = 5;
         [HideInInspector] public Vector2 movementInput;
 
@@ -46,19 +46,19 @@ namespace Character
         {
             AbilitySystemComponent.OnAttributeChanged += (attributeName, oldValue, newValue, ge) =>
             {
-                if (attributeName == movementSpeed) 
+                if (attributeName == movementSpeed)
                     moveSpeed = newValue;
             };
         }
-        
+
         public AbilitySystemComponent GetAbilitySystemComponent()
         {
             return AbilitySystemComponent;
         }
-        
+
         private void FixedUpdate()
         {
-            Vector3 newVelocity = new Vector3(movementInput.x * moveSpeed , rb.velocity.y,
+            Vector3 newVelocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y,
                 movementInput.y * moveSpeed);
             rb.velocity = newVelocity;
         }
@@ -86,23 +86,39 @@ namespace Character
 
         private void OnAbility_2_Action(InputAction.CallbackContext obj)
         {
+            if (obj.started)
+            {
+                TryActivateAbilityCommand(2);
+            }
         }
 
         private void OnAbility_3_Action(InputAction.CallbackContext obj)
         {
+            if (obj.started)
+            {
+                TryActivateAbilityCommand(3);
+            }
         }
 
         private void OnAbility_4_Action(InputAction.CallbackContext obj)
         {
+            if (obj.started)
+            {
+                TryActivateAbilityCommand(4);
+            }
         }
 
         private void OnAbility_5_Action(InputAction.CallbackContext obj)
         {
+            if (obj.started)
+            {
+                TryActivateAbilityCommand(5);
+            }
         }
 
         public void TryActivateAbilityCommand(int i)
         {
-            if (selfCastIfNoTarget && targets.Count == 0) 
+            if (selfCastIfNoTarget && targets.Count == 0)
                 targets.Add(AbilitySystemComponent);
 
             //If targeted projectile ability, just get all enemies and put them as targets...
@@ -167,7 +183,5 @@ namespace Character
             actionOnAbility_4.RemoveBindInputAction(OnAbility_4_Action);
             actionOnAbility_5.RemoveBindInputAction(OnAbility_5_Action);
         }
-
- 
     }
 }

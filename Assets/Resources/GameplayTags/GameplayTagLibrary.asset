@@ -15,4 +15,6 @@ MonoBehaviour:
   AutoRefresh: 1
   itemList:
   - {fileID: 11400000, guid: 17ca443378fe84a43aad7fcf7f7d9856, type: 2}
+  - {fileID: 11400000, guid: 9c198c8e9ededb646a007ce9af97927f, type: 2}
+  - {fileID: 11400000, guid: 79782a13a9e1ccd4c9517ee485009ce0, type: 2}
   folder: Assets/Resources/GameplayTags

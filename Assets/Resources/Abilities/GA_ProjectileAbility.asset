@@ -25,7 +25,7 @@ MonoBehaviour:
           name: 
           description: 
           durationType: 0
-          durationValue: 0
+          durationValue: 0.2
           period: 0
           periodicExpired: 0
           modifiers: []
@@ -39,7 +39,7 @@ MonoBehaviour:
             ApplicationTagRequirementsRequired: []
             ApplicationTagRequirementsForbidden: []
             RemoveGameplayEffectsWithTag: []
-            initialized: 0
+            initialized: 1
             string_GrantedTags: []
             string_DescriptionTags: []
             string_OngoingTagRequirementsRequired: []
@@ -92,12 +92,14 @@ MonoBehaviour:
         effects: []
         effectsSO:
         - {fileID: 11400000, guid: 1b00e79bf6ad73e439f511bc56450527, type: 2}
+        - {fileID: 11400000, guid: 606abb644976ce64784acc49f68d5f14, type: 2}
         abiltyTags:
           rid: 1073729571211182083
         source: {fileID: 0}
         target: {fileID: 0}
         owner: {fileID: 0}
-        cuesTags: []
+        cuesTags:
+        - {fileID: 11400000, guid: 79782a13a9e1ccd4c9517ee485009ce0, type: 2}
         guid: 
         className: 
         level: 0

@@ -1,0 +1,90 @@
+@startuml
+title Unity Gameplay Ability System (GAS) Class Diagram
+
+class AbilitySystemComponent {
+    + Attributes : GameplayAttribute[]
+    + AttributeProcessors : GameplayAttributeProcessor[]
+    + GrantedGameplayAbilities : GameplayAbility[]
+    + OnAttributeChanged : Action<AttributeName, float, float, GameplayEffect>
+    ---
+    + float GetAttributeValue(AttributeName attName)
+    + void TryActivateAbility(int index, AbilitySystemComponent target)
+    + void TryActivateAbility(string abilityName, AbilitySystemComponent target)
+    + GameplayAbility GrantAbility(GameplayAbility ga)
+    + GameplayEffect ApplyGameplayEffect(AbilitySystemComponent source, AbilitySystemComponent target, GameplayEffect ge, string applicationGUID = null)
+    + RemoveDurationGameplayEffect(GameplayEffect ge)
+}
+
+class GameplayAttribute {
+    + name : string
+    + attributeName : AttributeName
+    + baseValue : float
+    + currentValue : float
+    + modification : AttributeModifier
+    ---
+    + float GetValue()
+    + void ApplyModifiers(GameplayEffect gameplayEffect)
+    + void RemoveModifier(float modifierValue, GameplayEffect gameplayEffect)
+    + void ApplyModifierAsResource(Modifier modifier, GameplayEffect ge)
+}
+
+class GameplayAbility {
+    + name : string
+    + cooldown : GameplayEffect
+    + cost : GameplayEffect
+    + effects : List<GameplayEffect>
+    + abilityTags : List<GameplayTag>
+    ---
+    + ActivateAbility(AbilitySystemComponent source, AbilitySystemComponent target, string activationGUID)
+    + DeactivateAbility(string activationGUID = null)
+}
+
+class GameplayEffect {
+    + name : string
+    + durationType : EGameplayEffectDurationType
+    + modifiers : List<Modifier>
+    + gameplayEffectTags : GameplayEffectTags
+    + cuesTags : List<GameplayTag>
+    ---
+    + void ApplyEffect(AbilitySystemComponent source, AbilitySystemComponent target)
+    + void RemoveEffect(AbilitySystemComponent source, AbilitySystemComponent target)
+}
+
+class GameplayTag {
+    + name : string
+}
+
+class GameplayCue {
+    + name : string
+    + prefab : GameObject
+    + instance : GameObject
+    + tag : GameplayTag
+    + applicationData : GameplayCueApplicationData
+    ---
+    + void AddCue(AbilitySystemComponent asc, bool instantDestroy, GameplayCueApplicationData appData)
+    + void RemoveCue(AbilitySystemComponent asc)
+    + void PlaceCue(AbilitySystemComponent asc)
+}
+
+class Modifier {
+    + attributeName : AttributeName
+    + value : float
+    ---
+    + float GetValue(GameplayEffect ge)
+}
+
+AbilitySystemComponent "1" *-- "*" GameplayAttribute : contains
+AbilitySystemComponent "1" *-- "*" GameplayAbility : contains
+AbilitySystemComponent "1" *-- "*" GameplayCue : contains
+AbilitySystemComponent "1" *-- "*" GameplayTag : contains
+
+GameplayAbility "1" *-- "*" GameplayEffect : has
+GameplayAbility "1" *-- "*" GameplayTag : has tags
+
+GameplayEffect "1" *-- "*" Modifier : uses
+GameplayEffect "1" *-- "*" GameplayTag : has tags
+
+GameplayCue "1" *-- "1" : Gameplay : uses
+
+Modifier *-- GameplayAttribute : modifiers
+@enduml

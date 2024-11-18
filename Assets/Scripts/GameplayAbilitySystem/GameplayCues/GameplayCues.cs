@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using GameplayAbilitySystem.SOs;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace GameplayAbilitySystem
     /// <summary>
     /// GameplayCue 클래스는 게임 내에서 특정 이벤트나 효과를 시각적, 청각적으로 표시하기 위해 사용되는 Cue를 관리합니다.
     /// </summary>
+    [Serializable]
     public class GameplayCue
     {
         /// <summary>

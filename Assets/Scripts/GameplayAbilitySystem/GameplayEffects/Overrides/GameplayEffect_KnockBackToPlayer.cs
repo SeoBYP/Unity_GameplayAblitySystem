@@ -33,10 +33,17 @@ namespace GameplayAbilitySystem.GameplayEffects
                 .WithScheduler(MotionScheduler.FixedUpdate)
                 .WithOnComplete(() =>
                 {
-                    Debug.Log("Movement Complete!");
-                    OnMovementComplete(source, target);
-                }).BindToPosition(currentTransform);
+                    if (target != null) // 타겟이 여전히 유효한 경우에만 완료 로직 실행
+                    {
+                        Debug.Log("Movement Complete!");
+                        OnMovementComplete(source, target);
+                    }
+                }).BindToPosition(currentTransform)
+                .AddTo(target);
         }
+        
+        
+        
         // 이동 완료 후 추가 작업을 정의할 수 있는 메서드
         private void OnMovementComplete(AbilitySystemComponent source, AbilitySystemComponent target)
         {

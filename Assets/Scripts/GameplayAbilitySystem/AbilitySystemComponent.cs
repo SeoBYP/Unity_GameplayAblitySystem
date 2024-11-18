@@ -374,7 +374,7 @@ namespace GameplayAbilitySystem
                 case EGameplayEffectDurationType.Duration:
                     Debug.Log(
                         "[FREE VERSION] Duration and Infinite GameplayEffects are not fully available on the free version. Check GASify on the Assetstore for more options.");
-                    RemoveDurationGE(geCopy);
+                    RemoveDurationGameplayEffect(geCopy);
                     ApplyInstantGameplayEffect(geCopy);
                     break;
                 case EGameplayEffectDurationType.Instant:
@@ -389,7 +389,7 @@ namespace GameplayAbilitySystem
             return geCopy;
         }
 
-        public async void RemoveDurationGE(GameplayEffect ge)
+        public async void RemoveDurationGameplayEffect(GameplayEffect ge)
         {
             await Task.Delay((int)(ge.durationValue * 1000)); // 밀리초 단위로 변환
             if (appliedGameplayEffects.Contains(ge))

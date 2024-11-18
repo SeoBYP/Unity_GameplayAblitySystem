@@ -10,6 +10,7 @@ namespace GameplayAbilitySystem
     /// <summary>
     /// GameplayTag와 연결된 Cue 정보를 관리하는 클래스
     /// </summary>
+    [Serializable]
     public class GameplayTagsWithCue
     {
         /// <summary>
@@ -31,6 +32,8 @@ namespace GameplayAbilitySystem
     /// <summary>
     /// Cue를 관리하는 라이브러리 싱글톤 ScriptableObject 클래스입니다.
     /// </summary>
+    [CreateAssetMenu(menuName = "Gameplay Ability System/Gameplay Cues Library", fileName = "CuesLibrary")]
+    [Serializable]
     public class CuesLibrary : SingleTonScriptableObject<CuesLibrary>
     {
         /// <summary>
@@ -54,6 +57,7 @@ namespace GameplayAbilitySystem
 
             // 원본 Cue 리스트를 복사
             List<GameplayCue> copyCues = new List<GameplayCue>();
+            
             foreach (GameplayCue cue in originalCues)
             {
                 if (cue == null) return null; // Cue가 null이면 null 반환
